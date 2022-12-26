@@ -28,6 +28,7 @@ class Main{
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.print(T.solution(str));
+    sc.close();
     return ;
   }
 }

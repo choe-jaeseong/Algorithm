@@ -35,6 +35,7 @@ class Main{
     for(int x : T.solution(s,t)){
       System.out.print(x+" ");
     }
+    sc.close();
     return ;
   }
   

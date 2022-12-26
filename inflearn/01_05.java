@@ -28,7 +28,7 @@ class Main{
         Scanner kb = new Scanner(System.in);
         String str = kb.next();
         System.out.println(T.solution(str));
-        
+        kb.close();
         return ;
     }
     

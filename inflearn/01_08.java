@@ -15,5 +15,6 @@ class Main {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		System.out.print(T.solution(str));
+		sc.close();
 	}
 }

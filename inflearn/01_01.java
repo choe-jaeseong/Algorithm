@@ -21,6 +21,7 @@ class Main {
         String str = kb.next();
         char c = kb.next().charAt(0);
         System.out.print(T.solution(str, c));
+        kb.close();
         return ;
     }
 }

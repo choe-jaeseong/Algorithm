@@ -19,7 +19,7 @@ class Main{
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
         System.out.println(T.solution(str));
-        
+        sc.close();
         return ;
     }
 }

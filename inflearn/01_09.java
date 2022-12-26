@@ -24,6 +24,7 @@ class Main {
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.println(T.solution2(str));
+    sc.close();
     return ;
   }
   
