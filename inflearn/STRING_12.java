@@ -1,7 +1,7 @@
 // 12. 암호
 import java.util.*;
 
-class Main{
+class STRING_12{
 
   public String solution(int n, String str){
     String answer = "";
@@ -15,7 +15,7 @@ class Main{
   }
 
   public static void main(String[] args){
-    Main T = new Main();
+    STRING_12 T = new STRING_12();
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     String str = sc.next();

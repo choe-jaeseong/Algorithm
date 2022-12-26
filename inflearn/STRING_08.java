@@ -1,7 +1,7 @@
 // 8. 유효한 팰린드롬
 import java.util.*;
 
-class Main {
+class STRING_08 {
 	public String solution(String s){
 		String answer = "NO";
 		s = s.toUpperCase().replaceAll("[^A-Z]", "");
@@ -11,7 +11,7 @@ class Main {
 	}
 	
 	public static void main(String[] args){
-		Main T = new Main();
+		STRING_08 T = new STRING_08();
 		Scanner sc = new Scanner(System.in);
 		String str = sc.nextLine();
 		System.out.print(T.solution(str));

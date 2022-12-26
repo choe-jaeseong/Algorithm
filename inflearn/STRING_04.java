@@ -1,7 +1,7 @@
 // 4. 단어 뒤집기(StringBuilder이용법 또는 직접뒤집기)
 import java.util.*;
 
-class Main {
+class STRING_04 {
     
     public ArrayList<String> solution(int n, String[] str){
         ArrayList<String> answer=new ArrayList<>();
@@ -14,7 +14,7 @@ class Main {
     }
     
     public static void main(String[] args){
-        Main T = new Main();
+        STRING_04 T = new STRING_04();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt();
         String[] str= new String[n];  //동적으로 배열할당

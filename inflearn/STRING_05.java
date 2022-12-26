@@ -1,7 +1,7 @@
 // 5. 특정 문자 뒤집기(toCharArray())
 import java.util.*;
 
-class Main{
+class STRING_05{
     
     public String solution(String str){
         String answer;
@@ -24,7 +24,7 @@ class Main{
     }
     
     public static void main(String[] args){
-        Main T = new Main();
+        STRING_05 T = new STRING_05();
         Scanner kb = new Scanner(System.in);
         String str = kb.next();
         System.out.println(T.solution(str));

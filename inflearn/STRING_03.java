@@ -1,7 +1,7 @@
 //3.문장 속 단어(split, indexof, substring)
 import java.util.*;
 
-class Main {
+class STRING_03 {
     
     public String solution(String str){
         String answer = "";
@@ -28,7 +28,7 @@ class Main {
     }
     
     public static void main(String[] args){
-        Main T = new Main();
+        STRING_03 T = new STRING_03();
         Scanner kb = new Scanner(System.in);
         String str = kb.nextLine();
         System.out.print(T.solution(str));

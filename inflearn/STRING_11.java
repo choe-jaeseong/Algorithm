@@ -1,7 +1,7 @@
 // 11. 문자열 압축
 import java.util.*;
 
-class Main{
+class STRING_11{
 
   public String solution(String str){
     String answer = "";
@@ -24,7 +24,7 @@ class Main{
 
   
   public static void main(String[] args){
-    Main T = new Main();
+    STRING_11 T = new STRING_11();
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.print(T.solution(str));

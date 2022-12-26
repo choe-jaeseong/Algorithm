@@ -1,7 +1,7 @@
 // 9. 숫자만 추출
 import java.util.*;
 
-class Main {
+class STRING_09 {
 
   public int solution1(String str){
     int answer = 0;
@@ -20,7 +20,7 @@ class Main {
   }
   
   public static void main(String[] args){
-    Main T = new Main();
+    STRING_09 T = new STRING_09();
     Scanner sc = new Scanner(System.in);
     String str = sc.next();
     System.out.println(T.solution2(str));

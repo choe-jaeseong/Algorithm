@@ -1,7 +1,7 @@
 // 6. 중복문자제거
 import java.util.*;
 
-class Main{
+class STRING_06{
     
     public String solution(String str){
         String answer = "";
@@ -13,7 +13,7 @@ class Main{
     }
     
     public static void main(String[] args){
-        Main T = new Main();
+        STRING_06 T = new STRING_06();
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
         System.out.println(T.solution(str));

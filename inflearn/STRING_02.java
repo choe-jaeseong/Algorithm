@@ -1,7 +1,7 @@
 //2. 대소문자 변환
 import java.util.*;
 
-class Main {
+class STRING_02 {
     
     public String solution(String str){
         String answer = "";
@@ -15,7 +15,7 @@ class Main {
     }
     
     public static void main(String[] args) {
-        Main T = new Main();
+        STRING_02 T = new STRING_02();
         Scanner kb = new Scanner(System.in);
         String str = kb.next();
         System.out.print(T.solution(str));

@@ -1,7 +1,7 @@
 // 7. 회문 문자열
 import java.util.*;
 
-class Main{
+class STRING_07{
     
     public String solution(String str){
         int i=0, j=str.length()-1;
@@ -15,7 +15,7 @@ class Main{
     }
     
     public static void main(String[] args){
-        Main T = new Main();
+        STRING_07 T = new STRING_07();
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
         System.out.println(T.solution(str));

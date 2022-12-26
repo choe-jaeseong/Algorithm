@@ -1,7 +1,7 @@
 // 10. 가장 짧은 문자거리
 import java.util.*;
 
-class Main{
+class STRING_10{
 
   public int[] solution(String s, char t){
     int[] dist = new int[s.length()];
@@ -28,7 +28,7 @@ class Main{
   }
   
   public static void main(String[] args){
-    Main T = new Main();
+    STRING_10 T = new STRING_10();
     Scanner sc = new Scanner(System.in);
     String s = sc.next();
     char t = sc.next().charAt(0);
