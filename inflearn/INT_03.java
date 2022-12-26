@@ -30,6 +30,7 @@ class INT_03{
     for (char x : T.solution(round, A, B).toCharArray()){
       System.out.println(x);
     }
+    sc.close();
     return ;
   }
 }
