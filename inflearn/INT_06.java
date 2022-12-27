@@ -1,3 +1,4 @@
+//6. 뒤집은 소수
 import java.util.*;
 
 public class INT_06 {
