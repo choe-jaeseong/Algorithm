@@ -17,7 +17,7 @@ public class INT_11 {
             }
             if (cnt > max){
                 max = cnt;
-                answer = i;
+                answer = i+1;
             }
         }
         System.out.println(answer);
@@ -35,6 +35,7 @@ public class INT_11 {
             }
         }
         T.solution(n, st_class);
+        sc.close();
         return ;
     }
 }
