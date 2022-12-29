@@ -1,3 +1,4 @@
+//12.멘토링
 import java.util.*;
 
 public class INT_12 {
@@ -33,6 +34,7 @@ public class INT_12 {
             }
         }
         System.out.println(T.solution(student, test, arr));
+        sc.close();
         return ;
     }
 }
