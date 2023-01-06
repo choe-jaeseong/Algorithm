@@ -1,4 +1,4 @@
-// 2. 괄호문자제거
+// 5-2. 괄호문자제거
 import java.util.*;
 
 public class STACK_02 {

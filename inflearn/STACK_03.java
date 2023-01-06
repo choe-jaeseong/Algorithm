@@ -1,4 +1,4 @@
-// 3. 크레인 인형뽑기(카카오)
+// 5-3. 크레인 인형뽑기(카카오)
 import java.util.Scanner;
 import java.util.Stack;
 
