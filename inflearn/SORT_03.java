@@ -1,6 +1,5 @@
-import java.util.Scanner;
-
 // 3. 삽입 정렬
+import java.util.Scanner;
 
 public class SORT_03 {
 
