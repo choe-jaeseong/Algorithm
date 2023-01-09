@@ -1,17 +1,19 @@
-import java.util.LinkedList;
-import java.util.Scanner;
-
-
 // 4. Least Recently Used
+import java.util.Scanner;
 
 public class SORT_04 {
 
     public int[] solution(int s, int n, int[] arr){
         int[] cache = new int[s];
-        int i = 0;
-        for(int j=0; j<n; j++){
-            if()
-            while(cache[i] != arr[j]) i++;
+        for(int i=0; i<n; i++){                 //arr
+            int j=0;
+            while(j<s && cache[j]!=0 && cache[j]!=arr[i]) j++;
+            if(j==s) j--;
+            while(j>0) {
+                cache[j]=cache[j-1];
+                j--;
+            }
+            cache[0]=arr[i];
         }
         
         return cache;
@@ -29,5 +31,6 @@ public class SORT_04 {
         for(int x: T.solution(s, n, arr)){
             System.out.print(x + " ");
         }
+        sc.close();
     }
 }
