@@ -1,20 +1,19 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-import javax.naming.event.NamingExceptionEvent;
 
 // 4. Least Recently Used
 
 public class SORT_04 {
 
-    public void sort()
-
     public int[] solution(int s, int n, int[] arr){
         int[] cache = new int[s];
-        int cnt = 0;
-
+        int i = 0;
+        for(int j=0; j<n; j++){
+            if()
+            while(cache[i] != arr[j]) i++;
+        }
         
-
         return cache;
     }
     
