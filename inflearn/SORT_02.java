@@ -27,5 +27,6 @@ public class SORT_02 {
         for(int x: T.solution(n, arr)){
             System.out.print(x + " ");
         }
+        sc.close();
     }
 }

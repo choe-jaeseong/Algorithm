@@ -23,5 +23,6 @@ public class STACK_05 {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
         System.out.println(T.solution(s));
+        sc.close();
     }
 }

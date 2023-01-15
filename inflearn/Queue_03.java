@@ -47,5 +47,6 @@ public class Queue_03 {
             arr[j] = sc.nextInt();
         }
         System.out.println(T.solution(n,m, arr));
+        sc.close();
     }
 }
