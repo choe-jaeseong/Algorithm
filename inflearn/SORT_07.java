@@ -51,7 +51,7 @@ public class SORT_07 {
             arr.add(new Point(x, y));
         }
         Collections.sort(arr);
-        for(Point o: arr) System.out.println(o.x + " " o.y);
+        // for(Point o: arr) System.out.println(o.x + " " o.y);
 
         sc.close();
     }

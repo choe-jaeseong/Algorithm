@@ -1,3 +1,4 @@
+// 8. 송아지 찾기 1(BFS : 상태트리탐색)
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -36,5 +37,6 @@ public class BFS_02 {
         int h = sc.nextInt();
         int s = sc.nextInt();
         System.out.println(T.BFS(h, s));
+        sc.close();
     }
 }
