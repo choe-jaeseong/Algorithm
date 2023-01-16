@@ -1,4 +1,4 @@
-//12. 경로탐색(11번과 동일. 연결리스트)
+//13. 경로탐색(12번과 동일. 연결리스트)
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -37,5 +37,6 @@ public class GRAPH_02 {
         visited[1]=1;
         T.DFS(1);
         System.out.println(ans);
+        sc.close();
     }
 }
