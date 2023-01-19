@@ -24,7 +24,6 @@ public class DBFS_11 {
                 int nx = tmp.x + dx[i];
                 int ny = tmp.y + dy[i];
                 if(nx>=1 && nx<=7 && ny>=1 && ny<=7 && bd[nx][ny]==0){
-                    System.out.println("("+nx+", "+ny+")");
                     bd[nx][ny]=1;
                     Q.offer(new Point(nx,ny));
                     dis[nx][ny]=dis[tmp.x][tmp.y]+1;
