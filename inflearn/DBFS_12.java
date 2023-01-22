@@ -24,7 +24,7 @@ public class DBFS_12 {
                 int nx=tmp.x+dx[i];
                 int ny=tmp.y+dy[i];
                 if(nx>=0 && nx<n && ny>=0 && ny<m && bd[nx][ny]==0){
-                    bd[nx][ny]=1;
+                    bd[nx][ny]=1;                    //방문 안 한 곳은 0
                     Q.offer(new Point(nx, ny));
                     dis[nx][ny]=dis[tmp.x][tmp.y]+1; //걸리는 시간 측정.(이전 값에 +1)
                 }
@@ -45,28 +45,18 @@ public class DBFS_12 {
             }
         }
         T.BFS();
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                System.out.print(dis[i][j]+" ");
-            }
-            System.out.println();
-        }
-        boolean flag = true;   //익지 않은 과일이 있는지 체크
         int ans=Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                if(bd[i][j]==0) flag=false;
-            }
-        }
-        if(flag){
-            for(int i=0; i<n; i++){
-                for(int j=0; j<m; j++){
-                    ans=Math.max(ans, dis[i][j]);
+                if(bd[i][j]==0){            //방문 안 한 곳이 있다면, -1 출력.
+                    System.out.println(-1);
+                    return ;
+                } else {
+                    ans=Math.max(ans, dis[i][j]);   //모두 익었다면 다 익는 데 소요된 시간 출력.
                 }
             }
-            System.out.println(ans);
         }
-        else System.out.println(-1);
+        System.out.println(ans);
 
         sc.close();
     }
