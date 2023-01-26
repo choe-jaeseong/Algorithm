@@ -57,7 +57,6 @@ public class DBFS_12 {
             }
         }
         System.out.println(ans);
-
         sc.close();
     }
 }
