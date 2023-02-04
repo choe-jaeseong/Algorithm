@@ -10,13 +10,13 @@ public class p2738{
         int[][] arr2 = new int[n][m];
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                arr1[n][m]=sc.nextInt();
+                arr1[i][j]=sc.nextInt();
             }
         }
         for(int i=0; i<n; i++){
             for(int j=0; j<m; j++){
-                arr2[n][m]=sc.nextInt();
-                System.out.print(arr1[n][m]+arr2[n][m]+" ");
+                arr2[i][j]=sc.nextInt();
+                System.out.print(arr1[i][j]+arr2[i][j]+" ");
             }
             System.out.println();
         }
