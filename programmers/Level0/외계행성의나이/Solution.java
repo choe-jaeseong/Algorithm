@@ -1,5 +1,7 @@
 package Level0.외계행성의나이;
 
+import java.util.stream.Collectors;
+
 class Solution {
     public String solution(int age) {
         String answer = age + "";

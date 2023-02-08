@@ -1,8 +1,6 @@
 package Level0.배열두배만들기;
 
-public class S
-
-olution {
+public class Solution {
     public int[] solution(int[] numbers) {
         int[] answer = {};
         for(int i=0; i<numbers.length; i++){
