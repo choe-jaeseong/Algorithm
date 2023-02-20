@@ -1,29 +1,20 @@
 package Level0.평행;
 
+import java.util.Arrays;
+
 public class Solution {
-    public int combination(int n, int r){
-        if(n==r) return 1;
-        if(r==1) return n;
-        return combination(n-1,r-1)+combination(n-1,r);
-    }
     public int solution(int[][] dots) {
-        System.out.println(dots.length);
-        int len = combination(dots.length,2), k=0;
-        System.out.println(len);
-        int[][] arr = new int[len][2];
-        for(int i=0; i<dots.length-1; i++){
-            for(int j=i+1; j<dots.length; j++){
-                arr[k][0]=dots[i][0]-dots[j][0];
-                arr[k][1]=dots[i][1]-dots[j][1];
-                k++;
-            }
-        }
-        for(int i=0; i<len-1; i++){
-            for(int j=i+1; j<len; j++){
-                if(arr[i][1] == (arr[i][0]/arr[j][0]*arr[j][1]))
-                    return 1;
-            }
-        }
+        Arrays.sort(dots, (o1, o2) -> {return o1[0]-o2[0];});
+        double v1 = dots[0][0]-dots[1][0];
+        double v2 = dots[0][1]-dots[1][1];
+        double p1 = dots[2][0]-dots[3][0];
+        double p2 = dots[2][1]-dots[3][1];
+        if(v1/p1 == v2/p2) return 1;
+        v1 = dots[0][0]-dots[2][0];
+        v2 = dots[0][1]-dots[2][1];
+        p1 = dots[1][0]-dots[3][0];
+        p2 = dots[1][1]-dots[3][1];
+        if(v1/p1 == v2/p2) return 1;
         return 0;
     }
     public static void main(String[] args) {

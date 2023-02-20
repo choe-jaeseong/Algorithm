@@ -1,5 +1,8 @@
 package Level0.겹치는선분의길이;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution {
     public int solution(int[][] lines) {
         int answer = 0;
@@ -10,9 +13,22 @@ public class Solution {
             }
         }
         for(int i=0; i<201; i++){
-            if(arr[i]>=2 && arr[i+1]>=2) answer++;
+            if(arr[i]>1) answer++;
         }
         return answer;
+    }
+    //다른 풀이1
+    public int solution1(int[][] lines) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int[] line : lines) {
+            int from = Math.min(line[0], line[1]);
+            int to = Math.max(line[0], line[1]);
+            for (int i = from; i < to; i++) {
+                map.merge(i, 1, Integer::sum);
+            }
+        }
+
+        return (int) map.values().stream().filter(i -> i > 1).count();
     }
     public static void main(String[] args) {
         Solution T = new Solution();
