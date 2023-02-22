@@ -1,5 +1,8 @@
 package Level1.약수의개수와덧셈;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution {
     public int cnt_divisor(int n){
         int cnt = 0;
