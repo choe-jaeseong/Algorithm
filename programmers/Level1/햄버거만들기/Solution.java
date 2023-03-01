@@ -52,9 +52,10 @@ public class Solution {
                 }
             }
         }
-
         return ans;
     }
+
+    
     public static void main(String[] args) {
         Solution T = new Solution();
         int[] arr = {2, 1, 1, 2, 3, 1, 2, 3, 1};
