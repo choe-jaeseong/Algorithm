@@ -1,5 +1,9 @@
 package Level0.가장큰수찾기;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Solution {
     public int[] solution(int[] array) {
         int[] answer = new int[2];

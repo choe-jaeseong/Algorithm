@@ -61,4 +61,5 @@ public class Solution {
         int[] arr = {2, 1, 1, 2, 3, 1, 2, 3, 1};
         System.out.println(T.solution2(arr));
     }
+    
 }
