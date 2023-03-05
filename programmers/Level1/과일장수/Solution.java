@@ -17,6 +17,15 @@ public class Solution {
         }
         return answer;
     }
+    //다른 풀이1
+    public int solution1(int k, int m, int[] score) {
+        int answer = 0;
+        Arrays.sort(score);
+        for(int i = score.length; i >= m; i -= m){
+            answer += score[i - m] * m;
+        }
+        return answer;
+    }
 
     public static void main(String[] args) {
         Solution T = new Solution();
