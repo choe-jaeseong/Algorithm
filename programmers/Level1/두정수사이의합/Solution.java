@@ -24,4 +24,5 @@ public class Solution {
     private long sumAtoB(long a, long b) {
         return (b - a + 1) * (a + b) / 2;
     }
+    
 }
