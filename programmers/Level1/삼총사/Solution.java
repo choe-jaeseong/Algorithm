@@ -1,3 +1,5 @@
+package Level1.삼총사;
+
 class Solution {
     public int solution(int[] number) {
         int answer = 0;
