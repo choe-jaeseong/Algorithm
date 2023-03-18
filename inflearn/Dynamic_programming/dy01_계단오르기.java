@@ -2,7 +2,7 @@ package Dynamic_programming;
 
 import java.util.Scanner;
 
-class dy01 {
+class dy01_계단오르기 {
     static int[] dy;
     public int solution(int n){
         dy[1] = 1;
@@ -13,7 +13,7 @@ class dy01 {
         return dy[n];
     }
     public static void main(String[] args) {
-        dy01 T = new dy01();
+        dy01_계단오르기 T = new dy01_계단오르기();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         dy = new int[n+1];
