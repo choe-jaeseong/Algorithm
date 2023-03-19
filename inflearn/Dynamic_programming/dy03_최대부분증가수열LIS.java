@@ -12,13 +12,14 @@ public class dy03_최대부분증가수열LIS {
             int max = 0;
             for(int j = i-1; j>=0; j--){
                 if(arr[i]>arr[j]){
-                    if(max < dy[j]+1){
-                        max = dy[j]+1;
+                    if(max < dy[j]){
+                        max = dy[j];
                     }
                 }
             }
-            dy[i]=max;
-            if(answer < dy[i]) answer = dy[i];
+            dy[i]=max+1;
+            // if(answer < dy[i]) answer = dy[i];
+            answer = Math.max(answer, dy[i]);
         }
         return answer;
     }
