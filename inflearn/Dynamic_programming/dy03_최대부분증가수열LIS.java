@@ -3,23 +3,22 @@ package Dynamic_programming;
 import java.util.Scanner;
 
 public class dy03_최대부분증가수열LIS {
+    int[] dy;
     public int solution(int n, int[] arr){
-        int answer = 0, cnt = 1;
-        for(int i=0; i<n; i++){
-            for(int j=i+1; j<n; j++){
-                int tmp = arr[i];
-                cnt = 1;
-                for(int k=j; k<n; k++){
-                    if(tmp < arr[k]){
-                        cnt++;
-                        tmp = arr[k];
-                        System.out.println("j: "+j+", cnt: "+cnt+", tmp: "+tmp);
-                    } else {
-                        continue;
+        int answer = 0;
+        dy = new int[n];
+        dy[0] = 1;
+        for(int i=1; i<n; i++){
+            int max = 0;
+            for(int j = i-1; j>=0; j--){
+                if(arr[i]>arr[j]){
+                    if(max < dy[j]+1){
+                        max = dy[j]+1;
                     }
                 }
-                if(answer<cnt) answer=cnt;
             }
+            dy[i]=max;
+            if(answer < dy[i]) answer = dy[i];
         }
         return answer;
     }
