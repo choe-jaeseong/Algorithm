@@ -18,5 +18,6 @@ class dy01_계단오르기 {
         int n = sc.nextInt();
         dy = new int[n+1];
         System.out.println(T.solution(n));
+        sc.close();
     }
 }

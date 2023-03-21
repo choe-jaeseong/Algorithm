@@ -45,6 +45,7 @@ public class DBFS_12 {
                 if(bd[i][j]==1) Q.offer(new Point(i,j));
             }
         }
+        sc.close();
         T.BFS();
         int ans=Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
@@ -58,6 +59,5 @@ public class DBFS_12 {
             }
         }
         System.out.println(ans);
-        sc.close();
     }
 }

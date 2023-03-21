@@ -18,5 +18,6 @@ public class dy02_돌다리건너기 {
         int n = sc.nextInt();
         dy = new int[n+2];
         System.out.println(T.solution(n));
+        sc.close();
     }
 }

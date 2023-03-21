@@ -30,7 +30,7 @@ public class SORT_07 {
     }
     
     public static void main(String[] args) {
-        SORT_07 T = new SORT_07();
+        // SORT_07 T = new SORT_07();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 

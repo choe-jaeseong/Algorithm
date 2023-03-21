@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class dy06_최대점수구하기_냅색알고리즘 {
     public static void main(String[] args) {
-        dy06_최대점수구하기_냅색알고리즘 T = new dy06_최대점수구하기_냅색알고리즘();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
