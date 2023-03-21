@@ -1,3 +1,4 @@
+package Efficiency_n2_n;
 //6. 최대 길이 연속부분수열
 import java.util.*;
 
@@ -10,7 +11,7 @@ public class EFF_06{
             while (j<n && k>=0) {
                 if (arr[j]==1) {
                     cnt++; 
-                    j++;  
+                    j++;
                 } else {
                     if (k == 0) break;
                     k--;

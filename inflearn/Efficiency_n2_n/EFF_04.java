@@ -1,3 +1,4 @@
+package Efficiency_n2_n;
 //4.연속 부분수열
 import java.util.*;
 

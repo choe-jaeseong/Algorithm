@@ -39,7 +39,7 @@ public class HASH_04 {
         int lt = 0;
         for (int rt = L; rt<a.length(); rt++){
             am.put(a.charAt(rt), am.getOrDefault(a.charAt(rt), 0)+1);
-            System.out.println("size: "+am.size()+", key: "+am.keySet()+", ans: "+ans);
+            // System.out.println("size: "+am.size()+", key: "+am.keySet()+", ans: "+ans);
             if(am.equals(bm)) ans++;
             am.put(a.charAt(lt), am.get(a.charAt(lt))-1);
             if(am.get(a.charAt(lt))==0) am.remove(a.charAt(lt));

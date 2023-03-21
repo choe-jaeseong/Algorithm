@@ -1,3 +1,4 @@
+package Efficiency_n2_n;
 //5. 연속된 자연수의 합
 import java.util.*;
 

@@ -1,3 +1,4 @@
+package Efficiency_n2_n;
 // 2. 공통원소 구하기
 import java.util.*;
 

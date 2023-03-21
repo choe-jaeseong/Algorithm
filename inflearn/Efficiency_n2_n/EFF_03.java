@@ -1,4 +1,5 @@
-//3. 최대 매출
+package Efficiency_n2_n;
+//3. 최대 매출(Sliding_window)
 import java.util.*;
 
 public class EFF_03 {
@@ -9,9 +10,10 @@ public class EFF_03 {
             price += sales[i];
         }
         max = price;
-        for (int j=n; j<day-n+1; j++){
+        for (int j=n; j<day; j++){
             price += (sales[j] - sales[j-n]);
-            if (max < price) max = price;
+            // if (max < price) max = price;
+            max = Math.max(max, price);
         }
         return max;
     }

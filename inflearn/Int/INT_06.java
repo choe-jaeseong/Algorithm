@@ -1,6 +1,7 @@
 package Int;
 //6. 뒤집은 소수
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class INT_06 {
     
@@ -11,7 +12,7 @@ public class INT_06 {
         }
         return true;
     }
-
+    
     public ArrayList<Integer> solution(int n, int[] arr){
         ArrayList<Integer> ans = new ArrayList<>();
         for (int i = 0; i<n; i++){
@@ -26,7 +27,18 @@ public class INT_06 {
         }
         return ans;
     }
-
+    
+    //다른 풀이1
+    // public ArrayList<Integer> solution(int n, int[] arr){
+    //     ArrayList<Integer> ans = new ArrayList<>();
+    //     for (int i = 0; i<n; i++){
+    //         String a = arr[i]+"";
+    //         String num = new StringBuilder(a).reverse().toString();
+    //         int n1 = Integer.parseInt(num);
+    //         if(isPrime(n1)) ans.add(n1);
+    //     }
+    //     return ans;
+    // }
     public static void main(String[] args){
         INT_06 T = new INT_06();
         Scanner sc = new Scanner(System.in);
