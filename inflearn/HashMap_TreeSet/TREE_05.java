@@ -1,8 +1,8 @@
-package HashMap;
+package HashMap_TreeSet;
 //5.k번째 큰 수
 import java.util.*;
 
-class HASH_05 {
+class TREE_05 {
 
   public int solution(int n, int k, int[] arr){
     int ans = -1;
@@ -23,7 +23,7 @@ class HASH_05 {
   }
   
   public static void main(String[] args) {
-    HASH_05 T = new HASH_05();
+    TREE_05 T = new TREE_05();
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();
     int k = sc.nextInt();

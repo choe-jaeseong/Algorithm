@@ -1,4 +1,4 @@
-package HashMap;
+package HashMap_TreeSet;
 //2. 아나그램(해쉬)
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package HashMap;
+package HashMap_TreeSet;
 //3. 매출액의 종류
 import java.util.*;
 

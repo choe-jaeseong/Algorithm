@@ -1,4 +1,4 @@
-package HashMap;
+package HashMap_TreeSet;
 //1. 학급 회장(해쉬)
 import java.util.*;
 
