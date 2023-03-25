@@ -19,7 +19,7 @@ public class SORT_09 {
     public int solution(int n, int m, int[] arr){
         int ans = 0;
         int lt = Arrays.stream(arr).max().getAsInt();
-        int rt = Arrays.stream(arr).sum();
+        int rt = Arrays.stream(arr).sum(); //sum은 기본형 int
         while(lt<=rt){
             int mid=(lt+rt)/2;
             if(count(arr, mid)<=m){

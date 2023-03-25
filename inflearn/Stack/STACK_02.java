@@ -28,7 +28,7 @@ public class STACK_02 {
         String answer = "";
         Stack<Character> stack = new Stack<>();
         for(char x: str.toCharArray()){
-            if(x=='('){
+            if(x==')'){
                 while(stack.pop()!='(');
             }
             else stack.push(x);

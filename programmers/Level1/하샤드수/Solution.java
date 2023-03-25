@@ -5,13 +5,30 @@ public class Solution {
         int tmp = x;
         int sum_x = 0;
         while(tmp>0){
-            System.out.println("sum_x: "+sum_x+", tmp: "+tmp+", x: "+x);
-            sum_x += x%10;
+            sum_x += tmp%10;
             tmp /= 10;
-            System.out.println("sum_x: "+sum_x+", tmp: "+tmp+", x: "+x);
         }
         if(x%sum_x==0) return true;
         return false;
+    }
+
+    //다른 풀이1
+    public boolean isHarshad(int num){
+        String [] tmp = String.valueOf(num).split("");
+        int sum=0;
+        for(String s:tmp) {
+            sum+=Integer.parseInt(s);
+        }    
+        if(num%sum==0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //다른 풀이2
+    public boolean solution2(int x) {
+        int sum = String.valueOf(x).chars().map(ch -> ch - '0').sum();
+        return x % sum == 0;
     }
     public static void main(String[] args) {
         Solution T = new Solution();
