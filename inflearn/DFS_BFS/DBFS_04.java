@@ -49,3 +49,31 @@ public class DBFS_04 {
 //         sc.close();
 //     }
 // }
+
+//나의 답 (ans String 이용)
+// public class practice {
+//     static int n, m;
+//     static String ans = "";
+//     public void DFS(int L){
+//         if(L==m){
+//             for(char x : ans.toCharArray()){
+//                 System.out.print(x+" ");
+//             }
+//             System.out.println();
+//         } else {
+//             for(int i=1; i<=n; i++){
+//                 ans += i;
+//                 DFS(L+1);
+//                 ans = ans.substring(0,ans.length()-1);
+//             }
+//         }
+//     }
+//     public static void main(String[] args) {
+//         practice T = new practice();
+//         Scanner sc = new Scanner(System.in);
+//         n = sc.nextInt();
+//         m = sc.nextInt();
+//         T.DFS(0);
+//         sc.close();
+//     }
+// }

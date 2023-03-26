@@ -29,7 +29,7 @@ public class DBFS_10 {
                 bd[i][j]=sc.nextInt();
             }
         }
-        bd[0][0]=1;
+        bd[0][0]=1; // 입력 꼭 하기!!!!!!!!!!!!!!
         T.DFS(0, 0);
         System.out.println(cnt);
         sc.close();

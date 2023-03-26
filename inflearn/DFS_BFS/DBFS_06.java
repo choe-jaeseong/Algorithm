@@ -1,6 +1,7 @@
 package DFS_BFS;
 import java.util.Scanner;
 
+//6. 순열 구하기
 public class DBFS_06 {
   static int n, m;
   static int[] pm, arr, visited;

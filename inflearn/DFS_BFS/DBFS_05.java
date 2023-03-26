@@ -6,7 +6,7 @@ import java.util.Scanner;
 // 5. 동전교환
 public class DBFS_05 {
     static int n, m, ans=Integer.MAX_VALUE;
-    public void DFS(int L, int sum, Integer[] arr){
+    public void DFS(int L, int sum, Integer[] arr){  //L: 사용한 동전 수, sum: 사용한 동전 합계
         if(sum>m) return ;
         if(L>=ans) return ;
         if(sum==m) ans=Math.min(ans, L);

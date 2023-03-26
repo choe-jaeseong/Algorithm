@@ -30,30 +30,31 @@ public class DBFS_02 {
 }
 
 //나의 답
-// public class DBFS_02 {
-//     static int w, n, max=0;
-//     static int[] arr;
+// public class practice {
+//     static int limit_weight, answer=0;
+//     static int n;
+//     static int[] arr_weight;
 //     public void DFS(int L, int sum){
-//         if(sum>w) return;
+//         if(sum>limit_weight) return;
 //         if(L==n){
-//             if(max<sum) max = sum;
-//         }
-//         else {
-//             DFS(L+1, sum+arr[L]);
+//             if(sum<=limit_weight) 
+//                 answer = Math.max(answer, sum);
+//         } else {
+//             DFS(L+1, sum + arr_weight[L]);
 //             DFS(L+1, sum);
 //         }
 //     }
-
 //     public static void main(String[] args) {
-//         DBFS_02 T = new DBFS_02();
+//         practice T = new practice();
 //         Scanner sc = new Scanner(System.in);
-//         w = sc.nextInt();
+//         limit_weight = sc.nextInt(); 
 //         n = sc.nextInt();
-//         arr = new int[n];
-//         for(int i=0; i<n; i++) arr[i]=sc.nextInt();
-//         int sum = 0;
-//         T.DFS(0, sum);
-//         System.out.println(max);
+//         arr_weight = new int[n];
+//         for(int i=0; i<n; i++){
+//             arr_weight[i] = sc.nextInt();
+//         }
+//         T.DFS(0, 0);
+//         System.out.println(answer);
 //         sc.close();
 //     }
 // }

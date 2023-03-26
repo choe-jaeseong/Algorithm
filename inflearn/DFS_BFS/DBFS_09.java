@@ -1,6 +1,7 @@
 package DFS_BFS;
 import java.util.Scanner;
 
+//9. 조합구하기 (ch[] 사용 x, DFS 매개변수에 시작점 s 추가)
 public class DBFS_09 {
     static int n, m;
     static int[] pm;

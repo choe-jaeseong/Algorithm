@@ -1,40 +1,65 @@
 package DFS_BFS;
-//12. 경로탐색(DFS, 인접행렬)
+
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
+class Point{
+    int x, y;
+    public Point(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+}
 public class practice {
     static int n, m;
-    static int answer = 0;
-    static int[] ch;        //방문기록
-    static int[][] graph;   //경로
-    public void DFS(int v){
-        if(v==n) answer++;
-        else {
-            for(int i=1; i<=n; i++){
-                if(graph[v][i]==1 && ch[i]==0){ //경로가 있고, 방문한 적이 없다면
-                    ch[i]=1;
-                    DFS(i);
-                    ch[i]=0;
+    static int[] dx = {0,0,1,-1};
+    static int[] dy = {1,-1,0,0};
+    static int[][] bd;
+    static Queue<Point> Q = new LinkedList<>();
+    public void BFS(){
+        while(!Q.isEmpty()){
+            Point tmp = Q.poll();
+            for(int i=0; i<4; i++){
+                int nx = tmp.x + dx[i];
+                int ny = tmp.y + dy[i];
+                if(nx>=0 && nx<n && ny>=0 && ny<m && bd[nx][ny]==0){
+                    bd[nx][ny]=bd[tmp.x][tmp.y]+1;
+                    Q.offer(new Point(nx, ny));
                 }
             }
         }
     }
-
     public static void main(String[] args) {
         practice T = new practice();
         Scanner sc = new Scanner(System.in);
-        n = sc.nextInt(); //노드 수
-        m = sc.nextInt(); //경로 수
-        ch = new int[n+1];
-        graph = new int[n+1][n+1];
-        for(int i=0; i<m; i++){
-            int p = sc.nextInt();
-            int q = sc.nextInt();
-            graph[p][q] = 1;
+        m = sc.nextInt();
+        n = sc.nextInt();
+        bd = new int[n][m];
+        boolean flag = true;
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                bd[i][j]=sc.nextInt();
+                if(bd[i][j]==0) flag = false;
+                else if(bd[i][j]==1) Q.offer(new Point(i,j));
+            }
         }
-        ch[1]=1;   //표시하고 시작하기.
-        T.DFS(1);
-        System.out.println(answer);
+        T.BFS();
+        int max = 0;
+        if(flag) System.out.println(0);
+        else {
+            for(int i=0; i<n; i++){
+                for(int j=0; j<m; j++){
+                    if(bd[i][j]==0){
+                        System.out.println(-1);
+                        return ;
+                    } else if(bd[i][j]>max){
+                        max = bd[i][j];
+                    }
+                }
+            }
+            System.out.println(max);
+        }
         sc.close();
     }
 }
