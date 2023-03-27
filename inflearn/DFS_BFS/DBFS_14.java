@@ -1,6 +1,7 @@
 package DFS_BFS;
 import java.util.Scanner;
 
+//14. 섬나라 아일랜드(BFS)
 public class DBFS_14 {
     int[] dx = {1,-1,0,0};
     int[] dy = {0,0,1,-1};

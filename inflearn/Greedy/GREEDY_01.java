@@ -19,6 +19,9 @@ public class GREEDY_01 {
     public int solution(ArrayList<Body> arr, int n){
         int cnt = 0;
         Collections.sort(arr);
+        for(int i=0; i<n; i++){
+            System.out.println(arr.get(i).h + " "+ arr.get(i).w);
+        }
         int max=Integer.MIN_VALUE;
         for(Body ob : arr){
             if(ob.w>max){
