@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+//2. 회의실 배정
 class Time implements Comparable<Time>{
     public int s, e;
     Time(int s, int e){
