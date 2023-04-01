@@ -1,12 +1,15 @@
 package Greedy;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
 //4. 최대 수입 스케쥴(PriorityQueue 응용문제)
+/*
+ * 1. 마감일이 여유로운 것 기준으로 (d 내림차순), 마감일(d)이 같은 것 중에 강의료(m)가 더 큰 것을 꺼내어(poll()) 수입에 더한다.
+ * 2. 마감일을 줄여가면서 가능한 강의를 추가하고, 그 중 가장 큰 값을 꺼내어 수입에 더한다.
+ */
 class Request implements Comparable<Request>{
     int m, d;
     public Request(int m, int d){
