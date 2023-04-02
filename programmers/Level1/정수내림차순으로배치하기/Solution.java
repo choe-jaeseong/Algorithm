@@ -9,8 +9,14 @@ public class Solution {
         String sb = new StringBuilder().append(arr).reverse().toString();
         return Long.parseLong(sb);
     }
-    public static void main(String[] args) {
-        Solution T = new Solution();
-        System.out.println(T.solution(102));
+    
+    //다른 풀이1
+    String res = "";
+    public int reverseInt(int n){
+        res = "";
+        Integer.toString(n).chars().sorted().forEach(c -> res = Character.valueOf((char)c) + res);
+        return Integer.parseInt(res);
     }
+
+
 }
