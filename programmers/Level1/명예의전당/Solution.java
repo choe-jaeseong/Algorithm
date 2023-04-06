@@ -1,6 +1,7 @@
 package Level1.명예의전당;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 public class Solution {
     public int[] solution(int k, int[] score) {
@@ -11,6 +12,20 @@ public class Solution {
             arr.sort((num1,num2)->num2-num1);
             if(i<k-1) answer[i]=arr.get(i);
             else answer[i]=arr.get(k-1);
+        }
+        return answer;
+    }
+
+    //다른 풀이1
+    public int[] solution1(int k, int[] score) {
+        int[] answer = new int[score.length];
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        for(int i = 0; i < score.length; i++) {
+            priorityQueue.add(score[i]);
+            if (priorityQueue.size() > k) {
+                priorityQueue.poll();
+            }
+            answer[i] = priorityQueue.peek();
         }
         return answer;
     }
