@@ -15,7 +15,6 @@ public class Solution {
                 for(int k=j+1; k<n; k++){
                     if(isPrime(nums[i]+nums[j]+nums[k])) {
                         answer++;
-                        System.out.println(i + " " + j + " " + k);
                     }
                 }
             }
