@@ -21,16 +21,8 @@ public class Solution {
                     break;
                 }
             }
-            for(int i=0; i<board.length; i++){
-                for(int j=0; j<board.length; j++){
-                    System.out.print(board[i][j]);
-                }
-                System.out.println();
-            }
-            for(int t : stack) System.out.print(t + " ");
-            System.out.println();
         }
-        return answer;
+        return answer*2;
     }
     public static void main(String[] args) {
         Solution T = new Solution();
