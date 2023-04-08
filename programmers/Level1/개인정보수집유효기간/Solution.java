@@ -1,28 +1,69 @@
 package Level1.개인정보수집유효기간;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Solution {
     public int[] solution(String today, String[] terms, String[] privacies) {
-        String answer = "";
+        ArrayList<Integer> answer = new ArrayList<>();
         HashMap<String, Integer> map = new HashMap<>();
-        for(String x : terms){
-            String[] tmp = x.split(" ");
-            map.put(tmp[0], Integer.parseInt(tmp[1]));
-        }
-        for(String x : map.keySet()) System.out.println(map.get(x));
-        int[] td = getDate(today);
         
-        return td;
-    }
-    private int[] getDate(String s){
-        int[] arr = new int[3];
-        int i=0;
-        for(String x : s.split("[.]")){
-            arr[i++] = Integer.parseInt(x);
+        int date = getDate(today);
+
+        for (String s : terms) {
+            String[] term = s.split(" ");
+            map.put(term[0], Integer.parseInt(term[1]));
         }
-        return arr;
+        
+        for (int i = 0; i < privacies.length; i++) {
+            String[] privacy = privacies[i].split(" ");
+
+            if (getDate(privacy[0]) + (map.get(privacy[1]) * 28) <= date) {
+                answer.add(i + 1);
+            }
+        }
+        return answer.stream().mapToInt(integer -> integer).toArray();
     }
+
+    private int getDate(String today) {
+        String[] date = today.split("\\.");
+        int year = Integer.parseInt(date[0]);
+        int month = Integer.parseInt(date[1]);
+        int day = Integer.parseInt(date[2]);
+        return (year * 12 * 28) + (month * 28) + day;
+    }
+    // public int[] solution(String today, String[] terms, String[] privacies) {
+    //     String answer = "";
+    //     HashMap<String, Integer> period = new HashMap<>();
+    //     for(String x : terms){
+    //         String[] tmp = x.split(" ");
+    //         period.put(tmp[0], Integer.parseInt(tmp[1]));
+    //     }
+    //     int[] td = getDate(today);
+    //     for(int i=0; i<privacies.length; i++){
+    //         String x = privacies[i];
+    //         int time = period.get(x.charAt(x.length()-1)+"");
+    //         int[] pv = getDate(x.substring(0, x.indexOf(" ")));
+    //         int diff = (pv[0]*12*28 + pv[1]*28 + pv[2] + time*28-1) - (td[0]*12*28 + td[1]*28 + td[2]);
+    //         if(diff<0) answer+=i+1;
+    //     }
+    //     int[] ans;
+    //     if(answer.length()>0){
+    //         ans = new int[answer.length()];
+    //         for(int i=0; i<ans.length; i++){
+    //             ans[i]=answer.charAt(i)-'0';
+    //         }
+    //     } else return new int[0];
+    //     return ans;
+    // }
+    // private int[] getDate(String s){
+    //     int[] arr = new int[3];
+    //     int i=0;
+    //     for(String x : s.split("[.]")){
+    //         arr[i++] = Integer.parseInt(x);
+    //     }
+    //     return arr;
+    // }
     public static void main(String[] args) {
         Solution T = new Solution();
         String today = "2022.05.19";
@@ -32,77 +73,4 @@ public class Solution {
             System.out.println(x);;
         }
     }
-
-
-    //풀이1번
-    /*
-     * public int[] solution(String today, String[] terms, String[] privacies) {
-        String answer = "";
-        //데이터 정리
-        HashMap<String, Integer> map = new HashMap<>();
-        for(int i=0; i<terms.length; i++){
-            String[] s = terms[i].split(" ");
-            map.put(s[0], Integer.parseInt(s[1]));
-        }
-        int[] td = initialDate(today);
-        int[][] pv = new int[privacies.length][3];
-        for(int i=0; i<pv.length; i++){
-            String s = privacies[i];
-            pv[i] = initialDate(s.substring(0,s.length()-2));
-            pv[i][3] = s.charAt(s.length()-1);
-        }
-        //파기 문서 찾기
-        for(int i=0; i<pv.length; i++){
-            int period = map.get((char)pv[i][3]+"");
-            System.out.println(period);
-            pv[i][1]+=period%12;    //month
-            if(pv[i][1]>12){
-                pv[i][0]++;
-                pv[i][1]-=12;
-            }
-            pv[i][0]+=period/12;    //year
-            if(pv[i][2]==1){        //day
-                pv[i][1]--;
-                pv[i][2]=28;
-            }else pv[i][2]--;
-
-            System.out.println(pv[i][0]+"."+pv[i][1]+"."+pv[i][2] + "   "+answer);
-            System.out.println(td[0]+" "+td[1]+" "+td[2]);
-            //대상 여부 확인
-            if(pv[i][0]<td[0]){
-                answer+=i+1;
-                continue;
-            }else if(pv[i][0]>td[0]){
-                continue;
-            } else { 
-                if(pv[i][1]<td[1]){
-                    answer+=i+1;
-                    continue;
-                } else if(pv[i][1]>td[1]){
-                    continue;
-                } else {
-                    if(pv[i][2]<td[2]){
-                        answer+=i+1;
-                        continue;
-                    }else if(pv[i][2]>td[2]){
-                        continue;
-                    }
-                }
-            }
-        }
-        int[] ans = new int[answer.length()];
-        for(int i=0; i<answer.length(); i++){
-            ans[i]=answer.charAt(i)-'0';
-        }
-        return ans;
-    }
-    public int[] initialDate(String today){
-        int[] td = new int[4];
-        String[] s = today.split("[.]");
-        for(int i=0; i<3; i++){
-            td[i]=Integer.parseInt(s[i]);
-        }
-        return td;
-    }
-     */
 }
