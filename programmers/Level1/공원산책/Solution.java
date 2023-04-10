@@ -1,44 +1,33 @@
 package Level1.공원산책;
 
 public class Solution {
-    static char[] d = {'E','W','S','N'};
-    static int[] dx = {0,0,1,-1}; //동서남북
-    static int[] dy = {1,-1,0,0};
-    public boolean isPossible(int[] answer, String[] park, int n, int i){
-        int[] sp = answer.clone();
-        for(int j=0; j<n; j++){
-            sp[0]+=dx[i];
-            sp[1]+=dy[i];
-            if(sp[0]>=0 && sp[0]<park.length && sp[1]>=0 && sp[1]<park[0].length() && park[sp[0]].charAt(sp[1])=='O'){
-                continue;
-            } else return false;
-        }
-        return true;
-    }
     public int[] solution(String[] park, String[] routes) {
+        String d = "EWSN";
+        int[] dx = {0,0,1,-1};
+        int[] dy = {1,-1,0,0};
         int[] answer = new int[2];
-        //시작지점 찾기
-        boolean flag = false;
+        //1. 시작지점 찾기
         for(int i=0; i<park.length; i++){
-            for(int j=0; j<park[0].length(); j++){
-                if(park[i].charAt(j)=='S'){
-                    answer[0]=i;
-                    answer[1]=j;
-                    flag=true;
-                }
-                if(flag) break;
+            int idx = park[i].indexOf("S");
+            if(idx!=-1){
+                answer[0]=i;  //x
+                answer[1]=idx;//y
+                break;
             }
-            if(flag) break;
         }
-        //이동시키기
-        for(String move : routes){
-            for(int i=0; i<4; i++){
-                if(d[i]==move.charAt(0)){
-                    if(isPossible(answer, park, move.charAt(2)-'0', i)){
-                        answer[0]+=dx[i]*(move.charAt(2)-'0');
-                        answer[1]+=dy[i]*(move.charAt(2)-'0');
-                    }
-                }
+        System.out.println(answer[0] + " " + answer[1]);
+        //2. route 이동시키기
+        for(int i=0; i<routes.length; i++){
+            String[] route = routes[i].split(" ");
+            int idx = d.indexOf(route[0]);
+            for(int j=0; j<Integer.parseInt(route[1]); j++){
+                int nx = answer[0]+dx[idx];
+                int ny = answer[1]+dy[idx];
+                System.out.println(j +" "+ nx + " "+ ny);
+                if(nx>=0 && nx<park[0].length() && ny>=0 && ny<park.length && park[ny].charAt(nx)=='O'){
+                    answer[0]=ny;
+                    answer[1]=nx;
+                }else break;
             }
         }
         return answer;
@@ -48,7 +37,7 @@ public class Solution {
         String[] park = {"OSO","OOO","OXO","OOO"};
         String[] routes = {"E 2","S 3","W 1"};
         for(int x : T.solution(park, routes)){
-            System.out.print(x+" ");
+            System.out.print(x+"     ");
         }
     }
 }
