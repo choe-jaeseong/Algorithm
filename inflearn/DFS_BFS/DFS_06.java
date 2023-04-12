@@ -10,7 +10,7 @@ public class DFS_06 {
             }
             if(tmp.length()>0) System.out.println(tmp);
         }
-        else{
+        else {
             check[L]=1; //check O
             DFS(L+1);   //다음 층으로 진행
             check[L]=0; //check X

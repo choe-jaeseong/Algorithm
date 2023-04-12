@@ -11,7 +11,7 @@ public class DFS_04 {
     public static void main(String[] args) {
         DFS_04 T = new DFS_04();
         int n = 45;
-        fibo=new int[n+1];
+        fibo = new int[n+1];
         T.DFS(n);
         for(int i=1; i<=n; i++) System.out.print(fibo[i]+ " ");
     }
