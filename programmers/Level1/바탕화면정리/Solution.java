@@ -37,4 +37,7 @@ public class Solution {
         }
         return new int[]{minX,minY,maxX+1,maxY+1};
     }
+    public static void main(String[] args) {
+        
+    }
 }
