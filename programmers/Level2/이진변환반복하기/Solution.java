@@ -9,21 +9,11 @@ public class Solution {
             answer[1]+=s.length()-a.length();
             s = Integer.toBinaryString(a.length());
         }
-        // while(!s.equals("1")){
-        //     answer[0]++;
-        //     String a = s.replace("0", "");
-        //     answer[1]+=s.length()-a.length();
-        //     int n = Integer.parseInt(a,2);
-        //     s = n+"";
-        // }
         return answer;
     }
     public static void main(String[] args) {
         Solution T = new Solution();
         for(int x : T.solution("110010101001"))
             System.out.println(x);
-        // String a = "101";
-        // String b = Integer.parseInt(a,2)+"";
-        // System.out.println(b); 
     }
 }
