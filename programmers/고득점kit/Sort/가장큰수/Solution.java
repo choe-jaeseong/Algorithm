@@ -1,4 +1,4 @@
-package 고득점kit.정렬.가장큰수;
+package 고득점kit.Sort.가장큰수;
 
 import java.util.ArrayList;
 import java.util.Arrays;

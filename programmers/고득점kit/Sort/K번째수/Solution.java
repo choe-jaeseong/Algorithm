@@ -1,4 +1,4 @@
-package 고득점kit.정렬.K번째수;
+package 고득점kit.Sort.K번째수;
 
 //level1
 import java.util.ArrayList;

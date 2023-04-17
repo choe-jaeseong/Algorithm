@@ -1,4 +1,4 @@
-package 고득점kit.스택_큐.올바른괄호;
+package 고득점kit.Stack_Queue.올바른괄호;
 
 import java.util.Stack;
 

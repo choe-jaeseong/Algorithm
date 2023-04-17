@@ -1,4 +1,4 @@
-package 고득점kit.정렬.HIndex;
+package 고득점kit.Sort.HIndex;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package 고득점kit.스택_큐.같은숫자는싫어;
+package 고득점kit.Stack_Queue.같은숫자는싫어;
 
 import java.util.ArrayList;
 

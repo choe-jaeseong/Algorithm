@@ -1,4 +1,4 @@
-package 고득점kit.스택_큐.프린터;
+package 고득점kit.Stack_Queue.프린터;
 
 import java.util.Arrays;
 import java.util.LinkedList;

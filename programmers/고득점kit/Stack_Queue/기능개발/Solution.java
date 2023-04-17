@@ -1,4 +1,4 @@
-package 고득점kit.스택_큐.기능개발;
+package 고득점kit.Stack_Queue.기능개발;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package 고득점kit.스택_큐.다리를지나는트럭;
+package 고득점kit.Stack_Queue.다리를지나는트럭;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -48,5 +48,61 @@ public class Solution {
         Solution T = new Solution();
         int[] arr = {7,4,5,6};
         System.out.println(T.solution(2, 10, arr));
+    }
+
+
+    //다른 풀이1
+    class Truck1 {
+        int weight;
+        int move;
+
+        public Truck1(int weight) {
+            this.weight = weight;
+            this.move = 1;
+        }
+
+        public void moving() {
+            move++;
+        }
+    }
+
+    public int solution1(int bridgeLength, int weight, int[] truckWeights) {
+        Queue<Truck1> waitQ = new LinkedList<>();
+        Queue<Truck1> moveQ = new LinkedList<>();
+
+        for (int t : truckWeights) {
+            waitQ.offer(new Truck1(t));
+        }
+
+        int answer = 0;
+        int curWeight = 0;
+
+        while (!waitQ.isEmpty() || !moveQ.isEmpty()) {
+            answer++;
+
+            if (moveQ.isEmpty()) {
+                Truck1 t = waitQ.poll();
+                curWeight += t.weight;
+                moveQ.offer(t);
+                continue;
+            }
+
+            for (Truck1 t : moveQ) {
+                t.moving();
+            }
+
+            if (moveQ.peek().move > bridgeLength) {
+                Truck1 t = moveQ.poll();
+                curWeight -= t.weight;
+            }
+
+            if (!waitQ.isEmpty() && curWeight + waitQ.peek().weight <= weight) {
+                Truck1 t = waitQ.poll();
+                curWeight += t.weight;
+                moveQ.offer(t);
+            }
+        }
+
+        return answer;
     }
 }
