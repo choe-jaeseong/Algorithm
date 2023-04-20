@@ -1,12 +1,11 @@
 package 고득점kit.Graph.가장먼노드;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution {
-    ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+    ArrayList<ArrayList<Integer>> graph = new ArrayList<>();  //그래프를 행렬이 아닌 연결리스트로 구현해야 시간초과 안 남.
     int[] ch;
     int max_L;
     public void BFS(int x){
