@@ -1,25 +1,22 @@
 package 고득점kit.DFS_BFS.네트워크;
 
+
 public class Solution {
+    int ans;
+    int[] ch;
     public int solution(int n, int[][] computers) {
-        int answer = 0;
+        ans = computers.length;
+        ch = new int[n];
         for(int i=0; i<n; i++){
+            ch[i]=1;
             for(int j=0; j<n; j++){
-                for(int k=0; k<n; k++){
-                    if(computers[i][j]==1 && computers[j][k]==1){
-                        computers[i][k]=1;
-                        computers[k][i]=1;
-                    }
+                if(ch[j]==0 && computers[i][j]==1){
+                    ch[j]=1;
+                    ans--;
                 }
             }
         }
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                System.out.print(computers[i][j]+" ");
-            }
-            System.out.println();
-        }
-        return answer;
+        return ans;
     }
     public static void main(String[] args) {
         Solution T = new Solution();
@@ -27,3 +24,8 @@ public class Solution {
         System.out.println(T.solution(3, arr));
     }
 }   
+
+/*
+ * 1. i번째 컴퓨터일 때 연결된 컴퓨터가 있다면, 네트워크를 표시하고 전체 개수에서 차감.
+ * 2. 
+ */
