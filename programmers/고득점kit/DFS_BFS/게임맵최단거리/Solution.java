@@ -50,7 +50,7 @@ public class Solution {
  * 1. 시작점 위치를 Q에 넣는다.
  * 2. 이동칸 수 L = 1;
  * 3. while (!isEmpty)
- *      gps x = poll
+ *    ₩₩  gps x = poll
 *       새로운 인덱스 만들었을 때,
  *      for( 동 서 남 북)
  *          if 맵 안에 포함되고, 길에 포함된다면, 그리고 간 적이 없다면
