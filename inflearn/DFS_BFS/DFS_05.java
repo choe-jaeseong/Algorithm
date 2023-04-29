@@ -1,4 +1,3 @@
-
 package DFS_BFS;
 class Node{
     int data;
@@ -32,3 +31,9 @@ public class DFS_05 {
         tree.DFS(tree.root);
     }
 }
+
+/*
+ * 1
+ * 23
+ * 45 67
+ */

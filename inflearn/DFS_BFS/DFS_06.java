@@ -21,7 +21,7 @@ public class DFS_06 {
     public static void main(String[] args) {
         DFS_06 T = new DFS_06();
         n = 3;
-        check=new int[n+1]; //각 숫자를 그대로 쓰기 위해서 n+1;
+        check = new int[n+1]; //각 숫자를 그대로 쓰기 위해서 n+1;
         T.DFS(1);
     }
 }
