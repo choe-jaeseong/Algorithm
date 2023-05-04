@@ -38,7 +38,7 @@ public class Solution {
         }
         return Long.parseLong(tokens.get(0));
     }
-    public int solution(String expression){
+    public long solution(String expression){
         //수식을 리스트로 분리
         StringTokenizer tokenizer = new StringTokenizer(expression, "+-*", true);
         List<String> tokens = new ArrayList<>();
@@ -48,7 +48,7 @@ public class Solution {
         //연산자 우선순위를 이용하여 calculate
         long max = 0;
         for(String[] precedence : precedences){
-            long value = Math.abs(calculate(tokens, precedence));
+            long value = Math.abs(calculate(new ArrayList<>(tokens), precedence));
             if(max < value) 
                 max = value;
         }

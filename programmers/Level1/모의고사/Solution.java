@@ -1,6 +1,6 @@
 package Level1.모의고사;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 public class Solution {
     public int[] solution(int[] answers) {
