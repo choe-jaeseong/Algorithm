@@ -1,4 +1,4 @@
-package Level0.캐릭터의좌표;
+package 캐릭터의좌표;
 
 public class Solution {
     public int[] solution(String[] keyinput, int[] board) {

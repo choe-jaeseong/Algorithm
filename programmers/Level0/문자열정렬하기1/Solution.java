@@ -1,6 +1,8 @@
-package Level0.문자열정렬하기1;
+package 문자열정렬하기1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
     public int[] solution(String my_string) {

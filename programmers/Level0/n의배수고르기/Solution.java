@@ -1,4 +1,4 @@
-package Level0.n의배수고르기;
+package n의배수고르기;
 
 import java.util.ArrayList;
 import java.util.Arrays;

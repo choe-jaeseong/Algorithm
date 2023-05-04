@@ -36,13 +36,13 @@ public class Solution {
         return answer-1;
     }
     //다른 풀이2
-    public int solution2(String[][] clothes) {
-        return Arrays.stream(clothes)
-                .collect(groupingBy(p -> p[1], mapping(p -> p[0], counting())))
-                .values()
-                .stream()
-                .collect(reducing(1L, (x, y) -> x * (y + 1))).intValue() - 1;
-    }
+    // public int solution2(String[][] clothes) {
+    //     return Arrays.stream(clothes)
+    //             .collect(groupingBy(p -> p[1], mapping(p -> p[0], counting())))
+    //             .values()
+    //             .stream()
+    //             .collect(reducing(1L, (x, y) -> x * (y + 1))).intValue() - 1;
+    // }
     public static void main(String[] args) {
         Solution T = new Solution();
         String[][] arr = {{"yellow_hat", "headgear"},{"blue_sunglasses", "eyewear"},{"green_turban", "headgear"}};
