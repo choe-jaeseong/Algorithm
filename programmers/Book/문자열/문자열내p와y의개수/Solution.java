@@ -1,4 +1,4 @@
-package Book.문자열.문자열내p와y의개수;
+package 문자열.문자열내p와y의개수;
 
 public class Solution {
 

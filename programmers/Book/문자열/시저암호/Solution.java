@@ -1,4 +1,4 @@
-package Book.문자열.시저암호;
+package 문자열.시저암호;
 
 public class Solution {
 

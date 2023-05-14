@@ -1,4 +1,4 @@
-package Book.재귀.모음사전;
+package 재귀.모음사전;
 
 import java.util.ArrayList;
 import java.util.List;

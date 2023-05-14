@@ -1,4 +1,4 @@
-package Book.재귀.쿼드압축후개수세기;
+package 재귀.쿼드압축후개수세기;
 
 public class Solution {
     private static class Count {

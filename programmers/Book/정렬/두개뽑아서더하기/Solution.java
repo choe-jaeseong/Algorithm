@@ -1,4 +1,4 @@
-package Book.정렬.두개뽑아서더하기;
+package 정렬.두개뽑아서더하기;
 
 import java.util.Arrays;
 import java.util.HashSet;

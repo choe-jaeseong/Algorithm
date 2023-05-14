@@ -1,4 +1,4 @@
-package Book.완전탐색.카펫;
+package 완전탐색.카펫;
 
 public class Solution {
     public int[] solution(int brown, int yellow){

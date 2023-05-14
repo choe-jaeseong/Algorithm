@@ -1,4 +1,4 @@
-package Book.정렬.H_Index;
+package 정렬.H_Index;
 
 import java.util.Arrays;
 

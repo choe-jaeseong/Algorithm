@@ -1,4 +1,4 @@
-package Book.완전탐색.수식최대화;
+package 완전탐색.수식최대화;
 
 import java.util.ArrayList;
 import java.util.List;

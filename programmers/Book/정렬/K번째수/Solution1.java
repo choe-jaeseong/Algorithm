@@ -1,4 +1,4 @@
-package Book.정렬.K번째수;
+package 정렬.K번째수;
 
 import java.util.Arrays;
 

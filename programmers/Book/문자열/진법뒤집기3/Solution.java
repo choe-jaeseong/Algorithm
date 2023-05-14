@@ -1,4 +1,4 @@
-package Book.문자열.진법뒤집기3;
+package 문자열.진법뒤집기3;
 
 public class Solution {
     public int solution(int n){

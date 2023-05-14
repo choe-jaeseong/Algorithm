@@ -1,4 +1,4 @@
-package Book.배열.교점에별만들기;
+package 배열.교점에별만들기;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package Book.이진탐색.순위검색;
+package 이진탐색.순위검색;
 
 import java.util.ArrayList;
 import java.util.Arrays;

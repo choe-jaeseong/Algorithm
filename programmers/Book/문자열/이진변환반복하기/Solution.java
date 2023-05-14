@@ -1,4 +1,4 @@
-package Book.문자열.이진변환반복하기;
+package 문자열.이진변환반복하기;
 
 public class Solution {
     private int countZeros(String s){

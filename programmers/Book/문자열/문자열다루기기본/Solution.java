@@ -1,4 +1,4 @@
-package Book.문자열.문자열다루기기본;
+package 문자열.문자열다루기기본;
 
 public class Solution {
 

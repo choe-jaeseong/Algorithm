@@ -1,4 +1,4 @@
-package Book.문자열.문자열압축;
+package 문자열.문자열압축;
 
 import java.util.ArrayList;
 import java.util.List;

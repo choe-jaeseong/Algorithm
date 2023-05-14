@@ -1,4 +1,4 @@
-package Book.완전탐색.불량사용자;
+package 완전탐색.불량사용자;
 
 import java.util.Arrays;
 import java.util.HashSet;

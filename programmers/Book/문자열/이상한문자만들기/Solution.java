@@ -1,4 +1,4 @@
-package Book.문자열.이상한문자만들기;
+package 문자열.이상한문자만들기;
 
 public class Solution {
 

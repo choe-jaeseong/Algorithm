@@ -1,4 +1,4 @@
-package Book.정렬.가장큰수;
+package 정렬.가장큰수;
 
 public class Solution1 {
     

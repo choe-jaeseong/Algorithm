@@ -1,4 +1,4 @@
-package Book.재귀.하노이의탑;
+package 재귀.하노이의탑;
 
 import java.util.ArrayList;
 import java.util.List;

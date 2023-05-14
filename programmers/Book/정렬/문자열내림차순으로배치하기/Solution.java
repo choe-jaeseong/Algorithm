@@ -1,4 +1,4 @@
-package Book.정렬.문자열내림차순으로배치하기;
+package 정렬.문자열내림차순으로배치하기;
 
 public class Solution {
     public String solution(String s){

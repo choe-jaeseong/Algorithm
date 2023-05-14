@@ -1,4 +1,4 @@
-package Book.문자열.자연수뒤집어배열로만들기;
+package 문자열.자연수뒤집어배열로만들기;
 
 public class Solution {
     public int[] solution(Long n){

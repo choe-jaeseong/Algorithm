@@ -1,4 +1,4 @@
-package Book.정렬.문자열내마음대로정렬하기;
+package 정렬.문자열내마음대로정렬하기;
 
 /*
 * 1. 정렬 Arrays.sort( 람다식 )

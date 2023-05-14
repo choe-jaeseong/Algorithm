@@ -1,4 +1,4 @@
-package Book.정렬.H_Index;
+package 정렬.H_Index;
 
 /*
 * 1. citation을 정렬

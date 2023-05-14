@@ -1,4 +1,4 @@
-package Book.완전탐색.소수찾기;
+package 완전탐색.소수찾기;
 
 import java.util.HashSet;
 import java.util.Set;
