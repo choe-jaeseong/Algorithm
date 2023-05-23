@@ -38,7 +38,6 @@ public class Solution {
                 break;
             }
         }
-
         return new int[]{start + 1, end + 1};
     }
 }
