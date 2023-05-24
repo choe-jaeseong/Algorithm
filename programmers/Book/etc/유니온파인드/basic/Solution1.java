@@ -3,6 +3,7 @@ package etc.유니온파인드.basic;
 //최적화된 방법
 public class Solution1 {
     private static class Node {
+        
         private Node parent = null;
 
         public boolean isConnected(Node o) {
