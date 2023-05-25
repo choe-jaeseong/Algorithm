@@ -24,6 +24,7 @@ public class Solution {
         return answer;
   }
   
+  
     public static void main(String[] args) {
         Solution T = new Solution();
         String str = "3people          unFollowed me";
