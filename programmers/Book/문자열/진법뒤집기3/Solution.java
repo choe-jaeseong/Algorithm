@@ -6,4 +6,8 @@ public class Solution {
         String reversed = new StringBuilder(base3).reverse().toString();
         return Integer.parseInt(reversed, 3);
     }
+    public static void main(String[] args) {
+        Solution T = new Solution();
+        System.out.println(T.solution(11));
+    }
 }
