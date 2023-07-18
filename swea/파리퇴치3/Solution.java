@@ -26,8 +26,6 @@ public class Solution {
                     arr[i][j] = sc.nextInt();
                 }                
             }
-            
-            
             System.out.println("#"+test_case+" "+answer);
 		}
         sc.close();
