@@ -1,56 +1,46 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.function.Function;
 
 public class Main {
 
-    
-    private static final int LION = 1;
-    private static final int APEACH = 0;
-    private static final int INF = Integer.MAX_VALUE;
-
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine()," ");
-        Function<String,Integer> stoi = Integer::parseInt;
-        int n = stoi.apply(st.nextToken());
-        int k = stoi.apply(st.nextToken());
-        int[] arr = new int[n];
-        st = new StringTokenizer(br.readLine()," ");
-        for(int i = 0 ; i < n ; i++){
-            arr[i] = stoi.apply(st.nextToken());
-        }
-        System.out.println(solution(n,k,arr));
-    }
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-    public static int solution(int n,int k, int[] arr){
-        int si = 0;
-        int ei = 0;
-        int lineCnt = 0;
-        int result = INF;
-        while(ei <= n){
-            if(lineCnt < k){
-                if(ei == n){
-                    break;
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+
+        int[] arr = new int[n];
+        st = new StringTokenizer(br.readLine());
+        for(int i = 0 ; i < n ; i++) arr[i] = Integer.parseInt(st.nextToken());
+
+
+        int lp=0, rp=0, count=0, MIN = Integer.MAX_VALUE;
+        int Lion=0;
+
+        //lp rp 초기값 세팅
+        while(lp<n && arr[lp]!=1) {lp++; rp++;}
+
+        //투 포인터 시작
+        while(rp < arr.length){
+            if(arr[rp]==1){
+                count++;
+                Lion++;
+                if(Lion>=k) {
+                    MIN = Math.min(MIN, count); //MIN 업데이트.
+                    count--; lp++; Lion--;
+                    while(arr[lp] != 1) {count--; lp++;}
                 }
-                if(arr[ei++] == LION){
-                    lineCnt++;
-                }
-                continue;
-            }
-            if(lineCnt == k){
-                result = Math.min(result, ei-si);
-            }
-            if(arr[si++] == LION){
-                lineCnt--;
+                rp++;
+            } else {
+                count++;
+                rp++;
             }
         }
-        
-        //결과 출력
-        if(result == INF){
-            return -1;
-        }
-        return result;
+
+        if(MIN == Integer.MAX_VALUE) System.out.println(-1);
+        else System.out.println(MIN);
     }
 }
