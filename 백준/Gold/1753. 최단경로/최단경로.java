@@ -4,6 +4,8 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
+    
+    static ArrayList<ArrayList<Node>> list;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -16,7 +18,7 @@ public class Main {
         int start = Integer.parseInt(br.readLine());    //시작점
 
         //방향 그래프 구조 형성
-        ArrayList<ArrayList<Node>> list = new ArrayList<>();
+        list = new ArrayList<>();
         for(int i=0; i<V+1; i++) list.add(new ArrayList<>());
         //간선 정보 입력
         for(int i=0; i<E; i++) {
@@ -28,10 +30,10 @@ public class Main {
         }
 
         //다익스트라 알고리즘 수행
-        Dijkstra(V, list, start);
+        Dijkstra(V, start);
     }
 
-    private static void Dijkstra(int n, ArrayList<ArrayList<Node>> list, int start) {
+    private static void Dijkstra(int n, int start) {
         boolean[] ch = new boolean[n + 1];  //방문체크 배열
         int[] dist = new int[n + 1];        //거리길이 배열
         int INF = Integer.MAX_VALUE;
