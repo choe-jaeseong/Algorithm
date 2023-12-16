@@ -7,6 +7,7 @@ public class Main {
 
     private static int[] arr = new int[10001];
     private static ArrayList<Integer> list;
+    private static StringBuilder sb = new StringBuilder();;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -32,12 +33,13 @@ public class Main {
 
         //출력
         printSet(0, M, new int[M]);
+        System.out.println(sb.toString());
     }
 
     private static void printSet(int L, int M, int[] answer) {
         if(L == M) {
-            for(int x : answer) System.out.print(x + " ");
-            System.out.println();
+            for(int x : answer) sb.append(x + " ");
+            sb.append("\n");
             return;
         }
         for(int i=0; i<list.size(); i++){
