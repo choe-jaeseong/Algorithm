@@ -1,91 +1,82 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Main {
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static StringTokenizer st;
-	static int N, M, total = 0;
-	static boolean[] truePeople = new boolean[51];
-	static int[] parent;
-	
-	public static void main(String[] args) throws Exception {
-		st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); // 사람 수 
-		M = Integer.parseInt(st.nextToken()); // 파티 수
-		
-		// 1. union-find 초기화 
-		parent = new int[N+1];
-		for(int i=1;i<=N; i++) {
-			parent[i] = i;
-		}
-		
-		// 2. 진실을 아는 사람 정보 받아오기 truePeople[진실을아는사람] == true 
-		st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		for(int i=0; i<n; i++) {
-			truePeople[Integer.parseInt(st.nextToken())] = true;
-		}
-		
-		// 3. 파티 정보를 받아오면서 같은 파티에 있는 사람들 union
-		ArrayList<Integer>[] peoples = new ArrayList[M];
-		for(int i=0; i<M; i++) {
-			peoples[i] = new ArrayList<>();
-		}
-		int value, pre =0;
-		for(int i=0; i<M; i++) {
-			st = new StringTokenizer(br.readLine());
-			n = Integer.parseInt(st.nextToken());
-			if(n > 0) {
-				pre = Integer.parseInt(st.nextToken());
-				peoples[i].add(pre);
-			}
-			for(int j=1; j<n; j++) {
-				value = Integer.parseInt(st.nextToken());
-				peoples[i].add(value);
-				union(pre, value); // 두명씩 union하면 모두가 같은 parent를 갖게 됨.
-				pre = value;
-			}
-		}
-		
-		// 4. 진실을 아는 사람들의 parent는 같이 파티를 참여 했으므로 진실을 아는 사람들
-		int parent;
-		for(int i=1; i<truePeople.length; i++) {
-			if(truePeople[i]) {
-				truePeople[find(i)] = true;
-			}
-		}
-		
-		// 5. 진실을 아는 사람들과 파티를 같이 하지 않았으면 total++
-		for(int i=0; i<M; i++) {
-			if(peoples[i].size() > 0) {
-				parent = find(peoples[i].get(0));
-				if(!truePeople[parent]) total++;
-			}
-		}
 
-		// 6. 거짓말 할 수 있는 파티 최대 수 출력
-		System.out.println(total);
-	}
-	
-	private static int find(int x) {
-		if(parent[x] == x) 
-			return parent[x] = x;
-		else  return find(parent[x]);
-		
-	}
-	
-	private static boolean union(int a, int b) {
-		a = find(a);
-		b = find(b);
-		
-		if(a!= b) {
-			if(a>b) {
-				parent[a] = b;
-			} else {
-				parent[b] = a;
-			}
-			return true;
-		}
-		return false;
-	}
+    private static boolean[] knowns = new boolean[51];
+    private static List<List<Integer>> parties = new ArrayList<>();
+    private static int[] parents;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        //사람의 수, 파티의 수
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        //union 에 사용되는 parents 초기화
+        parents = new int[N+1];
+        for (int i = 1; i <=N ; i++) parents[i] = i;
+
+        //진실을 아는 사람
+        st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        for (int i = 0; i < n; i++) {
+            knowns[Integer.parseInt(st.nextToken())] = true;
+        }
+
+        if(n == 0) {
+            System.out.println(M);
+            return;
+        }
+
+        //파티 멤버 등록 및 union
+        for (int i = 0; i < M; i++) {
+            parties.add(new ArrayList<>());
+            st = new StringTokenizer(br.readLine());
+            n = Integer.parseInt(st.nextToken());
+
+            int pre = Integer.parseInt(st.nextToken());
+            parties.get(i).add(pre);
+            
+            for (int j = 1; j < n; j++) {
+                int member = Integer.parseInt(st.nextToken());
+                parties.get(i).add(member);
+                union(pre, member);
+            }
+        }
+
+        //진실을 아는 사람들 정리
+        for (int i = 0; i < knowns.length; i++)
+            if(knowns[i])
+                knowns[find(i)] = true;
+
+        //과장된 이야기를 할 수 있는 파티 개수의 최댓값 세기
+        int total = 0;
+        for (int i = 0; i < M; i++) {
+            int parent = find(parties.get(i).get(0));
+            if(!knowns[parent]) total++;
+        }
+        System.out.println(total);
+    }
+
+    private static int find(int v) {
+        int parent = parents[v];
+        if(parent == v) return v;
+
+        return find(parent);
+    }
+
+    private static void union(int v1, int v2) {
+        int p1 = find(v1);
+        int p2 = find(v2);
+
+        if(p1 == p2) return;
+
+        parents[p2] = p1;
+    }
 }
