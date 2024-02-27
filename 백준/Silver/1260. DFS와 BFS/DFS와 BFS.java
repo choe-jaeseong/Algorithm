@@ -1,11 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
+
+    static ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
+    static boolean[] ch_DFS, ch_BFS;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -14,45 +15,54 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
         int V = Integer.parseInt(st.nextToken());
 
-        //간선 정보 입력
-        int[][] lines = new int[1001][1001];
-        for(int i=0; i<M; i++){
+        for(int i=0; i<=N; i++) graph.add(new ArrayList<>());
+
+        for(int i=0; i<M; i++) {
             st = new StringTokenizer(br.readLine());
-            int from = Integer.parseInt(st.nextToken());
-            int to = Integer.parseInt(st.nextToken());
-            lines[from][to] = 1;
-            lines[to][from] = 1;
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            graph.get(a).add(b);
+            graph.get(b).add(a);
         }
 
-        //출력
-        DFS(V, N, lines, new int[N + 1]);
+        for(ArrayList list : graph)
+            Collections.sort(list);
+
+        ch_DFS = new boolean[N+1];
+        ch_BFS = new boolean[N+1];
+
+        DFS(V);
         System.out.println();
-        BFS(V, N, lines);
+        BFS(V);
     }
 
-    private static void BFS(int v, int n, int[][] lines) {
+    static void DFS(int start) {
+        if(ch_DFS[start] == true) return;
+        ch_DFS[start] = true;
+
+        System.out.print(start + " ");
+
+        for(int next : graph.get(start))
+            if(ch_DFS[next] == false)
+                DFS(next);
+    }
+
+    static void BFS(int start) {
         Queue<Integer> q = new LinkedList<>();
-        q.add(v);
-        int[] visited = new int[n+1];
-        while(!q.isEmpty()){
-            int tmp = q.poll();
-            if(visited[tmp] == 1) continue;
-            System.out.print(tmp + " ");
-            visited[tmp] = 1;
-            for(int i=1; i<=n; i++){
-                if(visited[i]==0 && lines[tmp][i]==1){
-                    q.add(i);
-                }
-            }
-        }
-    }
+        q.add(start);
 
-    private static void DFS(int v, int n, int[][] lines,int[] visited) {
-        System.out.print(v + " ");
-        visited[v] = 1;
-        for(int i=1; i<=n; i++){
-            if(visited[i]==0 && lines[v][i]==1){
-                DFS(i, n, lines, visited);
+        while(!q.isEmpty()) {
+            int now = q.poll();
+
+            if(ch_BFS[now] == true) continue;
+            ch_BFS[now] = true;
+
+            System.out.print(now + " ");
+
+            for(int next : graph.get(now)) {
+                if(ch_BFS[next] == false) {
+                    q.add(next);
+                }
             }
         }
     }
