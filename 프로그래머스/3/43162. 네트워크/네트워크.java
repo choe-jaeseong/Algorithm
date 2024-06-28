@@ -1,25 +1,33 @@
+import java.util.*;
+
 class Solution {
-    int[] ch;
-    int answer = 0;
-    public void DFS(int x, int[][] computers){
-        if(ch[x]==1) return ;
-        else{
-            ch[x]=1;
-            for(int i=0; i<ch.length; i++){
-                if(ch[i]==0 && computers[x][i]==1){
-                    DFS(i, computers);
-                }
+    
+    private void visitAll(int computer, int[][] computers, boolean[] isVisited) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(computer);
+        
+        while(!stack.isEmpty()) {
+            int c = stack.pop();
+            
+            if(isVisited[c]) continue;
+            isVisited[c] = true;
+            
+            for(int next=0; next<computers[c].length; next++) {
+                if(computers[c][next] == 0) continue;
+                stack.push(next);
             }
         }
     }
     public int solution(int n, int[][] computers) {
-        ch = new int[n];
-        for(int i=0; i<n; i++){
-            if(ch[i]==0){
-                answer++; //네트워크 수 1 증가.
-                DFS(i, computers);
-            }
+        boolean[] isVisited = new boolean[n];
+        int answer = 0;
+        
+        for(int i=0; i<n; i++) {
+            if(isVisited[i]) continue;
+            visitAll(i, computers,isVisited);
+            answer++;
         }
+        
         return answer;
     }
 }
