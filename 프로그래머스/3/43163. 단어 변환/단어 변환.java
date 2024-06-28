@@ -44,16 +44,15 @@ class Solution {
             this.count = count;
         }
         
-        boolean haveOneDifference(String other) {
-            int count = 0;
+        private boolean haveOneDifference(String other) {
+            int diff = 0;
             char[] a = s.toCharArray();
             char[] b = other.toCharArray();
             
             for(int i=0; i<other.length(); i++) {
-                if(a[i] != b[i]) count++;
-                if(count >= 2) return false;
+                if(a[i] != b[i]) diff++;
             }
-            return true;
+            return diff == 1;
         }
     }
 }
