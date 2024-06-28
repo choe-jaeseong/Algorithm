@@ -4,7 +4,7 @@ class Solution {
     
     public int solution(String begin, String target, String[] words) {
         if(!isExist(target, words)) return 0;
-        
+        boolean[] ch = new boolean[words.length];
         Queue<Word> q = new LinkedList<>();
         q.add(new Word(begin, -1, 0));
         
@@ -16,8 +16,10 @@ class Solution {
             for(int i=0; i<words.length; i++) {
                 if(word.index == i) 
                     continue;
-                if(word.haveOneDifference(words[i])) 
+                if(!ch[i] && word.haveOneDifference(words[i])) {
+                    ch[i] = true;
                     q.add(new Word(words[i], i, word.count + 1));
+                }
             }
         }
         return 0;
