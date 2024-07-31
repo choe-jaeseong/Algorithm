@@ -1,18 +1,37 @@
-# select * from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+# WITH NOT_IN_DATA AS (
+#     select car_id from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+#     where date_format(start_date, "%Y-%m-%d") < '2022-11-31'
+#     and date_format(end_date, "%Y-%m-%d") > '2022-11-01'
+#     group by car_id
+# ), DISCOUNT AS (
+#     SELECT CAR_TYPE, DISCOUNT_RATE 
+#     FROM CAR_RENTAL_COMPANY_DISCOUNT_PLAN
+#     WHERE CAR_TYPE IN ('세단', 'SUV') 
+#     AND DURATION_TYPE LIKE "30%"
+# )
 
-# car_type
-# select * from CAR_RENTAL_COMPANY_CAR
-# where CAR_TYPE in ('세단','SUV')
+# SELECT * FROM NOT_IN_DATA
 
--- car_type + 대여가능
+# SELECT  C.CAR_ID
+# FROM CAR_RENTAL_COMPANY_CAR C
+# LEFT JOIN NOT_IN_DATA N
+# ON C.CAR_ID = N.CAR_ID
+# WHERE N.CAR_ID IS NULL
+# AND C.CAR_TYPE IN ('세단', 'SUV')
 
-
-# select car_id from CAR_RENTAL_COMPANY_RENTAL_HISTORY
-# where date_format(end_date, "%Y-%m-%d") < '2022-11-01'
-# or '2022-11-31' < date_format(start_date, "%Y-%m-%d")
-# group by car_id
-# order by car_id
-
+# SELECT  C.CAR_ID, 
+#         C.CAR_TYPE, 
+#         ROUND((C.DAILY_FEE * 30) * (100 - (
+#             SELECT DISCOUNT_RATE FROM DISCOUNT D
+#             WHERE D.CAR_TYPE = C.CAR_TYPE
+#         )) / 100) AS FEE
+# FROM CAR_RENTAL_COMPANY_CAR C
+# LEFT JOIN NOT_IN_DATA N
+# ON C.CAR_ID = N.CAR_ID
+# WHERE N.CAR_ID IS NULL
+# AND C.CAR_TYPE IN ('세단', 'SUV')
+# # AND (FEE >= 500000 AND FEE < 2000000)
+# ORDER BY FEE DESC, CAR_TYPE ASC, CAR_ID DESC
 
 select c.car_id, c.car_type, round((30 * c.DAILY_FEE)*(100 - p.DISCOUNT_RATE)/100) as FEE 
 from CAR_RENTAL_COMPANY_CAR c
