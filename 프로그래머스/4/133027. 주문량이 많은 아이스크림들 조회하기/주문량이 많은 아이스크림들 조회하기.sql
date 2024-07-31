@@ -1,12 +1,10 @@
--- 코드를 입력하세요
-select flavor
+select a.FLAVOR
 from (
-    SELECT *
-    from FIRST_HALF
+    select *
+    from first_half
     union all
-    SELECT *
-    from JULY
+    select * from july
 ) a
-group by FLAVOR
-order by sum(total_order) desc
+group by a.FLAVOR
+order by sum(a.total_order) desc
 limit 3
