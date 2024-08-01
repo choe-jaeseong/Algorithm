@@ -1,16 +1,10 @@
-SELECT ST.SCORE, HE.EMP_NO, HE.EMP_NAME, HE.POSITION, HE.EMAIL 
-FROM HR_EMPLOYEES HE
-JOIN HR_GRADE HG ON HE.EMP_NO = HG.EMP_NO
-JOIN (
-    SELECT EMP_NO, SUM(HG.SCORE) SCORE 
-    FROM HR_GRADE HG
-    GROUP BY EMP_NO
-) ST ON HE.EMP_NO = ST.EMP_NO
-WHERE ST.SCORE = (
-    SELECT MAX(S.SCORE) FROM (
-        SELECT EMP_NO, SUM(HG.SCORE) SCORE 
-        FROM HR_GRADE HG
-        GROUP BY EMP_NO
-    ) S
+with best_member as (
+    select EMP_NO, sum(SCORE) SCORE from HR_GRADE
+    group by EMP_NO
+    order by SCORE desc
+    limit 1
 )
-GROUP BY HE.EMP_NO
+
+select b.SCORE, h.EMP_NO, h.EMP_NAME, h.POSITION, h.EMAIL 
+from best_member b
+join HR_EMPLOYEES h on b.EMP_NO = h.EMP_NO
