@@ -1,11 +1,17 @@
-with temp as (
-    select WRITER_ID	
-    from USED_GOODS_BOARD
+# 테이블에서 중고 거래 게시물을 3건 이상 등록한 사용자의 
+# 사용자 ID, 닉네임, 전체주소, 전화번호를 조회
+
+with user as (
+    select WRITER_ID, count(*) count from USED_GOODS_BOARD
     group by WRITER_ID
-    having count(WRITER_ID) >= 3
+    having count >= 3
 )
 
-SELECT USER_ID,NICKNAME,CONCAT(CITY,' ',STREET_ADDRESS1,' ',STREET_ADDRESS2),CONCAT(LEFT(TLNO,3),'-',SUBSTRING(TLNO,4,4),'-',RIGHT(TLNO,4))
-FROM USED_GOODS_USER U
-INNER JOIN TEMP T ON U.USER_ID = T.WRITER_ID
-ORDER BY USER_ID DESC
+select USER_ID, NICKNAME, concat(CITY, " ",STREET_ADDRESS1, " ", STREET_ADDRESS2) '전체주소', 
+concat(substr(TLNO, 1, 3), "-", substr(TLNO, 4, 4), "-", substr(TLNO, 8, 4)) '전화번호'
+from USED_GOODS_USER
+where USER_ID in (
+    select WRITER_ID
+    from user
+)
+order by USER_ID desc
