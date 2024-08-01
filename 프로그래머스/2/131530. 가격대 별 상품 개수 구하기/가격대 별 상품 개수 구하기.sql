@@ -1,4 +1,4 @@
-SELECT (price - (price % 10000)) PRICE_GROUP, COUNT(*) AS PRODUCTS
-FROM product
-GROUP BY PRICE_GROUP
-ORDER BY PRICE_GROUP;
+select (price - (price % 10000)) PRICE_GROUP, count(*) PRODUCTS
+from product
+group by PRICE_GROUP
+order by PRICE_GROUP
