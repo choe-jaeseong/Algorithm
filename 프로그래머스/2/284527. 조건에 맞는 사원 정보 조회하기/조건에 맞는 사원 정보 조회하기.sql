@@ -1,10 +1,10 @@
-with best_member as (
-    select EMP_NO, sum(SCORE) SCORE from HR_GRADE
-    group by EMP_NO
-    order by SCORE desc
-    limit 1
+WITH BEST_MEMBER AS (
+    SELECT EMP_NO, SUM(SCORE) SUM FROM HR_GRADE
+    GROUP BY EMP_NO
+    ORDER BY SUM DESC
+    LIMIT 1
 )
 
-select b.SCORE, h.EMP_NO, h.EMP_NAME, h.POSITION, h.EMAIL 
-from best_member b
-join HR_EMPLOYEES h on b.EMP_NO = h.EMP_NO
+SELECT B.SUM SCORE, H.EMP_NO, H.EMP_NAME, H.POSITION, H.EMAIL 
+FROM HR_EMPLOYEES H
+JOIN BEST_MEMBER B ON H.EMP_NO = B.EMP_NO
