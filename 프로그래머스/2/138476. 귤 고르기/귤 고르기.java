@@ -2,16 +2,24 @@ import java.util.*;
 
 class Solution {
     public int solution(int k, int[] tangerine) {
-        Integer[] size = new Integer[10_000_001];
-        for(int i=0; i<10_000_001; i++) size[i] = 0;
-        for(int t : tangerine) size[t]++;
-        Arrays.sort(size, Collections.reverseOrder());
-        int count = 1;
-        for(int s : size) {
-            k -= s;
-            if(k <= 0) break;
-            count++;
+        int answer = 0;
+        HashMap<Integer,Integer> map =new HashMap<>();
+
+        for (int t : tangerine) {
+            map.put(t, map.getOrDefault(t, 0) + 1);
         }
-        return count;
+
+        List<Integer> list = new ArrayList<>(map.keySet());
+        list.sort((o1, o2) -> map.get(o2)-map.get(o1));
+
+        for(Integer key:list){
+            k -=map.get(key);
+            answer++;
+            if(k<=0){
+                break;
+            }
+        }
+
+        return answer;
     }
 }
