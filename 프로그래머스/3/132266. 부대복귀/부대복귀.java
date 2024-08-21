@@ -28,17 +28,21 @@ class Solution {
     }
     private static void Dijkstra(int[][] roads, int start) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((r1, r2) -> r1[1] - r2[1]);
+        d[start] = 0;
         pq.add(new int[]{start, 0});
         while(!pq.isEmpty()) {
             int[] tmp = pq.poll();
             int to = tmp[0];
             int dist = tmp[1];
-            if(visited[to]) continue;
-            visited[to] = true;
-            d[to] = dist;
+            // if(visited[to]) continue;
+            // visited[to] = true;
+            // d[to] = dist;
             
             for(int next : r.get(to)) {
-                pq.add(new int[]{next, dist + 1});
+                if(d[next] > dist + 1) {
+                    d[next] = dist + 1;
+                    pq.add(new int[]{next, dist + 1});
+                }
             }
         }
     }
