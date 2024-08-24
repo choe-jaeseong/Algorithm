@@ -10,12 +10,7 @@ class Solution {
         DFS(0, 0, picks, minerals);
         return answer;
     }
-    private static boolean isDone(int[] picks) {
-        for(int p : picks) {
-            if(p > 0) return false;
-        }
-        return true;
-    }
+    
     private static void DFS(int idx, int sum, int[] picks, String[] minerals) {
         if(idx == minerals.length) {
             answer = Math.min(answer, sum);
@@ -46,5 +41,11 @@ class Solution {
                 picks[i]++;
             }
         }
+    }
+    private static boolean isDone(int[] picks) {
+        for(int p : picks) {
+            if(p > 0) return false;
+        }
+        return true;
     }
 }
