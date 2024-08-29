@@ -2,9 +2,11 @@ import java.util.*;
 
 class Solution {
     
+    
     private void visitAll(int computer, int[][] computers, boolean[] isVisited) {
         Stack<Integer> stack = new Stack<>();
         stack.push(computer);
+ 
         
         while(!stack.isEmpty()) {
             int c = stack.pop();
