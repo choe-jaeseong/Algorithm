@@ -29,9 +29,9 @@ class Solution {
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{x, y});
         visited[x][y] = true;
-        count += maps[x].charAt(y) - '0';
         while(!q.isEmpty()) {
             int[] tmp = q.poll();
+            count += maps[tmp[0]].charAt(tmp[1]) - '0';
             
             for(int i=0; i<4; i++) {
                 int nx = tmp[0] + dx[i];
@@ -40,7 +40,6 @@ class Solution {
                 if(visited[nx][ny]) continue;
                 if(maps[nx].charAt(ny) == 'X') continue;
                 visited[nx][ny] = true;
-                count += maps[nx].charAt(ny) - '0';
                 q.add(new int[]{nx, ny});
             }
         }
