@@ -2,19 +2,15 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int n, long left, long right) {
-        int[] arr = new int[(int)(right - left + 1)];
-        int startX = (int)(left / n);
-        int startY = (int)(left % n);
-        int endX = (int)(right / n);
-        int endY = (int)(right % n);
-        int idx = 0;
-        for(int i=startX; i<=endX; i++) {
-            for(int j=0; j<n; j++) {
-                if(i==startX && j<startY) continue;
-                if(i==endX && j>endY) break;
-                arr[idx++] = i >= j ? i + 1 : j + 1;
-            }
+        int[] answer = new int[(int)(right - left + 1)];
+        for(long i=left; i<=right; i++) {
+            answer[(int)(i - left)] = f(i, n);
         }
-        return arr;
+        return answer;
+    }
+    private static int f(long idx, int n) {
+        int i = (int)(idx / n);
+        int j = (int)(idx % n);
+        return Math.max(i, j) + 1;
     }
 }
