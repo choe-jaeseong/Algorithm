@@ -1,8 +1,3 @@
--- 코드를 입력하세요
-# SELECT CATEGORY, max(price) from food_product
-# group by CATEGORY
-# having CATEGORY in ('과자', '국', '김치', '식용유')
-
 select a.CATEGORY, a.price, a.product_name from food_product a
 join (SELECT CATEGORY, max(price) price from food_product
         group by CATEGORY
