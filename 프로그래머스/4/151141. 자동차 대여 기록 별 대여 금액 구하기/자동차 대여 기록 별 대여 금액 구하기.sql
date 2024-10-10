@@ -13,6 +13,7 @@ select h.HISTORY_ID, round((datediff(end_date, start_date) + 1) * c.DAILY_FEE * 
                         end
 ), 0)) / 100) FEE
 from CAR_RENTAL_COMPANY_RENTAL_HISTORY h
-join CAR_RENTAL_COMPANY_CAR c on h.CAR_ID = c.CAR_ID
+join CAR_RENTAL_COMPANY_CAR c 
+on h.CAR_ID = c.CAR_ID
 where c.CAR_TYPE = '트럭'
 order by FEE desc, h.HISTORY_ID desc
