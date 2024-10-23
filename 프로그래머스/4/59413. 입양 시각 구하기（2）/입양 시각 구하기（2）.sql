@@ -1,9 +1,3 @@
--- 코드를 입력하세요
-# SELECT hour(datetime) hour, count(*)
-# from ANIMAL_OUTS 
-# group by hour
-# order by hour
-
 with recursive A as(
     select 0 as hour
     union all
